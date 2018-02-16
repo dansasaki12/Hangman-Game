@@ -1,44 +1,46 @@
 
-(function() {
+// Alphabet
+var alphabetLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// wins
+var wins = 0;
+// losses
+var losses = 0;
+// number of guesses left
+var guessesLeft = 10;
+// what you have guessed
+var guessesSoFar = [];
+// users input
+var userGuess = null;
+// random letter
+var letterToBeGuessed = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
+console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + letterToBeGuessed);
 
-    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-    'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-    't', 'u', 'v', 'w', 'x', 'y', 'z'];
+document.onkeyup = function(event) {
 
-    var word ;  //selected word
-    var guesses ; //stored guesses
-    var spaces ; //number of spaces in word
-    var counter ; //correct guesses
-    var lives ; //number of lives
-
-    //words for the game
-    var hangmanwords = ["wrench", "socket", "hammer", "screwdriver"]
-
-    //random selection of words
-    var words = hangmanwords[Math.floor(Math.random)() * hangmanwords.length)];
-    words = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-    words = words.replace(/\s/g, "-");
-
-// var showLives = document.getElementById("mylives");
-
-
-//  var buttons = function () {
-//       myButtons = document.getElementById('buttons');
-//       letters = document.createElement('ul');
-  
-//       for (var i = 0; i < alphabet.length; i++) {
-//         letters.id = 'alphabet';
-//         list = document.createElement('li');
-//         list.id = 'letter';
-//         list.innerHTML = alphabet[i];
-//         check();
-//         myButtons.appendChild(letters);
-//         letters.appendChild(list);
-//       }
-//     }
-
-for (var i = 0; i < \variable\.length; i++){
-    
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	if (guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 0) {
+		guessesSoFar[guessesSoFar.length]=userGuess;
+		guessesLeft--;
+	}
+	if (letterToBeGuessed == userGuess) {
+		wins++;
+		console.log("You won!");
+		guessesLeft = 9;
+		guessesSoFar = [];
+		letterToBeGuessed = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
+		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + letterToBeGuessed);
+	}
+	if (guessesLeft == 0) {
+		losses++;
+		console.log("You lost!");
+		guessesLeft = 9;
+		guessesSoFar = [];
+		letterToBeGuessed = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
+		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + letterToBeGuessed);
+	}
+    var html = "<p><h1>The Psychic Game</h1></p>" + "<p><h4>Guess what letter I\'m thinking of</h4></p>" + 
+    "<p><h4>Wins: " + wins + "</h4></p>" + "<p><h4>Losses: " + losses + "</h4></p>" + 
+    "<p><h4>Guesses Left: " + guessesLeft + "</h4></p>" + 
+    "<p><h4>Your guesses so far: " + guessesSoFar + "</h4></p>";
+	document.querySelector("#game").innerHTML = html;
 }
-})();
-
