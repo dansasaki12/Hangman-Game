@@ -10,35 +10,35 @@ var guessesLeft = 10;
 // what you have guessed
 var guessesSoFar = [];
 // users input
-var userGuess = null;
+var userInput = null;
 // random letter
-var letterToBeGuessed = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
-console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + letterToBeGuessed);
+var randomLetter = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
+console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + randomLetter);
 
-document.onkeyup = function(event) {
+document.onkeypress = function(event) {
 
-	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-	if (guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 0) {
-		guessesSoFar[guessesSoFar.length]=userGuess;
+	var userInput = String.fromCharCode(event.keyCode).toLowerCase();
+	if (guessesSoFar.indexOf(userInput) < 0 && alphabetLetters.indexOf(userInput) >= 0) {
+		guessesSoFar[guessesSoFar.length]=userInput;
 		guessesLeft--;
 	}
-	if (letterToBeGuessed == userGuess) {
+	if (randomLetter == userInput) {
 		wins++;
-		console.log("You won!");
+		alert("You won! " + "The computer picked: " + randomLetter);
 		guessesLeft = 9;
 		guessesSoFar = [];
-		letterToBeGuessed = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
-		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + letterToBeGuessed);
+		randomLetter = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
+		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + randomLetter);
 	}
 	if (guessesLeft == 0) {
 		losses++;
-		console.log("You lost!");
+		alert("You lost! " + "The computer picked: " + randomLetter);
 		guessesLeft = 9;
 		guessesSoFar = [];
-		letterToBeGuessed = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
-		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + letterToBeGuessed);
+		randomLetter = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
+		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + randomLetter);
 	}
-    var html = "<p><h1>The Psychic Game</h1></p>" + "<p><h4>Guess what letter I\'m thinking of</h4></p>" + 
+    var html = "<br><br><br><br><p><h1>Psychic Game</h1></p>" + "<p><h4>What letter I\'m thinking of</h4></p>" + 
     "<p><h4>Wins: " + wins + "</h4></p>" + "<p><h4>Losses: " + losses + "</h4></p>" + 
     "<p><h4>Guesses Left: " + guessesLeft + "</h4></p>" + 
     "<p><h4>Your guesses so far: " + guessesSoFar + "</h4></p>";

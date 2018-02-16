@@ -3,3 +3,10 @@
     bottom: 0;
     height: 60px;
 }
+body{
+    background-image: url("http://media2.govtech.com/images/940*626/crystal-ball.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
