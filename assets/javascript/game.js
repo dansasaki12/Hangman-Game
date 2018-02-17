@@ -25,7 +25,7 @@ document.onkeypress = function(event) {
 	if (randomLetter == userInput) {
 		wins++;
 		alert("You won! " + "The computer picked: " + randomLetter);
-		guessesLeft = 9;
+		guessesLeft = 10;
 		guessesSoFar = [];
 		randomLetter = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
 		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + randomLetter);
@@ -33,7 +33,7 @@ document.onkeypress = function(event) {
 	if (guessesLeft == 0) {
 		losses++;
 		alert("You lost! " + "The computer picked: " + randomLetter);
-		guessesLeft = 9;
+		guessesLeft = 10;
 		guessesSoFar = [];
 		randomLetter = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
 		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + randomLetter);
