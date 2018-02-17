@@ -24,7 +24,7 @@ document.onkeypress = function(event) {
 	}
 	if (randomLetter == userInput) {
 		wins++;
-		alert("You won! " + "The computer picked: " + randomLetter);
+		alert("How did you know that? " + "You guessed what I was thinking! The letter " + randomLetter);
 		guessesLeft = 10;
 		guessesSoFar = [];
 		randomLetter = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
@@ -32,7 +32,7 @@ document.onkeypress = function(event) {
 	}
 	if (guessesLeft == 0) {
 		losses++;
-		alert("You lost! " + "The computer picked: " + randomLetter);
+		alert("HAHA! You cannot beat me!" + "The letter I was thinking of was " + randomLetter);
 		guessesLeft = 10;
 		guessesSoFar = [];
 		randomLetter = alphabetLetters[Math.floor(Math.random() * alphabetLetters.length)];
