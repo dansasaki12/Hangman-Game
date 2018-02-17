@@ -9,7 +9,12 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 700px;
 }
 h1, h5{
     padding-right: 50px;
+    position: initial ;
+}
+h1{
+    padding-top: 300px;
 }
